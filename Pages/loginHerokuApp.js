@@ -7,6 +7,10 @@ exports.loginPage=class loginPage{
         this.txtPassword = page.locator("#password");
         this.btnLogin = page.locator(".fa-sign-in");
 
+        //dropdown locator
+        this.cboDropdownList = page.locator("select#dropdown");
+
+
     }
     async navigateToApp(){
         await this.page.goto("https://the-internet.herokuapp.com/login");
@@ -17,4 +21,8 @@ exports.loginPage=class loginPage{
         await this.txtPassword.fill("SuperSecretPassword!");
         await this.btnLogin.click();
     }
+    async selectDropdown(){
+        await this.cboDropdownList.selectOption('1');
+    }
+
 }
